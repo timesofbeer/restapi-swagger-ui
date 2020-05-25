@@ -1,0 +1,172 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "",
+        "description": "",
+        "version": "1.0"
+    },
+    "produces": [
+        "application/json"
+    ],
+    "host": "localhost:5000",
+    "basePath": "/api",
+    "schemaInfo": {
+        "login": {
+            "username": {
+                "type": "string"
+            },
+            "password": {
+                "type": "string",
+                "example": "password"
+            }
+        }
+    },
+    "paths": {
+        "/register": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "swagTest",
+                "tags": [
+                    "/register"
+                ],
+                "description": "User Registration Endpoint , Add New user to the application",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Username and password for registration",
+                        "required": true,
+                        "type": "string",
+                        "schema": {
+                            "properties": {
+                                "username": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/login": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "swagTest",
+                "tags": [
+                    "/login"
+                ],
+                "description": "Login Endpoint, responses with JWT token after Login ",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Username and password for Login",
+                        "required": true,
+                        "type": "string",
+                        "schema": {
+                            "properties": {
+                                "username": {
+                                    "type": "string"
+                                },
+                                "password": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/otplogin": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "swagTest",
+                "tags": [
+                    "/login"
+                ],
+                "description": "Login Endpoint, responses with JWT token after Login ",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Login with OTP",
+                        "required": true,
+                        "type": "string",
+                        "schema": {
+                            "properties": {
+                                "username": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        }, "/verifyotp": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "swagTest",
+                "tags": [
+                    "/login"
+                ],
+                "description": "Login Endpoint,verify ONE TIME password expires in 120 seconds",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Login with OTP",
+                        "required": true,
+                        "type": "string",
+                        "schema": {
+                            "properties": {
+                                "username": {
+                                    "type": "string"
+                                },"otp": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/polls": {
+            "get": {
+                "operationId": "getPolls",
+                "tags": [
+                    "/polls"
+                ],
+                "description": "get the polls created by user",
+                "parameters": [],
+                "responses": {}
+            }
+        },
+        "/test": {
+            "post": {
+                "x-swagger-router-controller": "middleware-name1",
+                "operationId": "its just a test endpoint:foobar",
+                "tags": [
+                    "/test"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {}
+            }
+        }
+    },
+    "securityDefinitions": {
+        "JWT": {
+            "description": "",
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}

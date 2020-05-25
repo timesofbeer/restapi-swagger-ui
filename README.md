@@ -1,5 +1,3 @@
-# restapi-swagger-ui
-
 
 
 it's Assignement (POLL APPLICATION) which have these n features:
